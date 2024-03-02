@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:19:13 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/02 19:37:12 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/02 23:50:39 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,24 @@ int	is_number(char *arr)
 	return (1);
 }
 
-void	is_there_duplicate(char **arr)
+int	is_there_duplicate(char **arr)
 {
-	while (*arr)
+	int	i;
+	int	j;
+
+	i = 0;
+	while (arr[i])
 	{
-		
+		j = i + 1;
+		while (arr[j])
+		{
+			if ((ft_strncmp(arr[i], arr[j], INT_MAX) == 0))
+				return (1);
+			j++;
+		}
+		i++;
 	}
+	return (0);
 }
 
 char	**ft_parser(char **arr)
@@ -48,6 +60,10 @@ char	**ft_parser(char **arr)
 			return (NULL);
 		}
 		i++;
+	}
+	if (is_there_duplicate(arr))
+	{
+		printf("There is a duplicate!\n");
 	}
 	return (arr);
 }
