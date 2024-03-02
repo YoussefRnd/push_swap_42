@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 MK = mkdir -p
 
-LIBFT_DIR = ./lib/libft
+LIBFT_DIR = ./lib/Libft
 
 SRC = ./src
 OBJ_DIR = ./obj
