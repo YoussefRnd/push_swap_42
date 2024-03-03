@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/02 22:53:06 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/03 15:34:36 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,19 @@
 
 # include "../lib/Libft/libft.h"
 # include <limits.h>
-// typedef struct s_stack
-// {
-// 	int				nbr;
-// 	int				index;
-// 	struct s_stack	*next;
-// }					t_stack;
 
-char	**ft_parser(char **inputs);
-void	bubble_sort(char **arr, int n);
+typedef struct s_stack
+{
+	int				value;
+	int				index;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}					t_stack;
+
+char				**ft_parser(char **inputs);
+t_stack				*ft_input_process(int argc, char **argv);
+t_stack				*ft_stack_new(int value);
+t_stack				*ft_stacklast(t_stack *stack);
+void				ft_add_back(t_stack **stack, t_stack *new_stack);
 
 #endif

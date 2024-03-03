@@ -13,7 +13,9 @@ INCLUDE = ./include
 HEADER = $(INCLUDE)/push_swap.h
 
 SRCS = $(SRC)/main.c \
-	$(SRC)/parser.c \
+	$(SRC)/parcer.c \
+	$(SRC)/push_stack.c \
+	$(SRC)/stack_operations.c
 
 OBJS = $(SRCS:$(SRC)/%.c=$(OBJ_DIR)/%.o)
 
