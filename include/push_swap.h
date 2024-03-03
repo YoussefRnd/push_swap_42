@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/03 15:34:36 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/03 16:19:42 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../lib/Libft/libft.h"
 # include <limits.h>
+# include <stdbool.h>
 
 typedef struct s_stack
 {

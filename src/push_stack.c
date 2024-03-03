@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:06:30 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/03 15:33:36 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/03 16:16:58 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_stack	*ft_input_process(int argc, char **argv)
 	a = NULL;
 	if (argc > 2)
 	{
-		i = 0;
+		i = 1;
 		while (i < argc)
 		{
 			ft_add_back(&a, ft_stack_new(ft_atoi(argv[i])));

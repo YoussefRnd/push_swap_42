@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:19:13 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/03 15:05:57 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/03 16:23:16 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	is_there_duplicate(char **arr)
 	return (0);
 }
 
-char	**ft_parser(char **arr)
+bool	ft_parser(char **arr)
 {
 	int	i;
 	int	is_num;
@@ -66,19 +66,19 @@ char	**ft_parser(char **arr)
 		if (is_num == -1)
 		{
 			ft_putstr_fd("Error: NOT A NUMBER!!", 2);
-			return (NULL);
+			return (false);
 		}
 		else if (is_num == -2)
 		{
 			ft_putstr_fd("Error: NUMBER IS LARGER THAN INT_MAX!!", 2);
-			return (NULL);
+			return (false);
 		}
 		i++;
 	}
 	if (is_there_duplicate(arr))
 	{
 		ft_putstr_fd("Error: THERE IS A DUPLICATE!!", 2);
-		return (NULL);
+		return (false);
 	}
-	return (arr);
+	return (true);
 }
