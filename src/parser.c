@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:19:13 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/02 23:50:39 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/03 12:44:00 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,20 @@
 
 int	is_number(char *arr)
 {
+	int	len;
+
 	if ((*arr == '+' || *arr == '-') && *(arr + 1) != '\0')
 		arr++;
 	while (*arr)
 	{
+		len = ft_strlen(arr);
 		if (!ft_isdigit(*arr))
 		{
-			return (0);
+			return (-1);
+		}
+		if (len > 10 || (len == 10 && ft_strncmp(arr, "2147483647", 10) > 0))
+		{
+			return (-2);
 		}
 		arr++;
 	}
@@ -50,20 +57,28 @@ int	is_there_duplicate(char **arr)
 char	**ft_parser(char **arr)
 {
 	int	i;
+	int	is_num;
 
 	i = 1;
 	while (arr[i])
 	{
-		if (!is_number(arr[i]))
+		is_num = is_number(arr[i]);
+		if (is_num == -1)
 		{
-			printf("Error: %s is not a number\n", arr[i]);
+			ft_putstr_fd("Error: NOT A NUMBER!!", 2);
+			return (NULL);
+		}
+		else if (is_num == -2)
+		{
+			ft_putstr_fd("Error: NUMBER IS LARGER THAN INT_MAX!!", 2);
 			return (NULL);
 		}
 		i++;
 	}
 	if (is_there_duplicate(arr))
 	{
-		printf("There is a duplicate!\n");
+		ft_putstr_fd("Error: THERE IS A DUPLICATE!!", 2);
+		return (NULL);
 	}
 	return (arr);
 }
