@@ -16,7 +16,9 @@ SRCS = $(SRC)/main.c \
 	$(SRC)/parcer.c \
 	$(SRC)/push_stack.c \
 	$(SRC)/stack_operations.c \
-	$(SRC)/utils.c
+	$(SRC)/utils.c \
+	$(SRC)/push.c \
+	$(SRC)/swap.c
 
 OBJS = $(SRCS:$(SRC)/%.c=$(OBJ_DIR)/%.o)
 

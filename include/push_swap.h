@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/05 19:04:01 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/05 21:56:06 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,10 @@ void				ft_add_back(t_stack **stack, t_stack *new_stack);
 void				ft_stack_free(t_stack *stack);
 void				ft_free(char **arr);
 int					ft_arrlen(char **arr);
+
+void				push(t_stack **x, t_stack **y, char stack_name);
+
+void				swap(t_stack **stack, char stack_name);
+void				ss(t_stack **a, t_stack **b);
 
 #endif
