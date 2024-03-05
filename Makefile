@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
 MK = mkdir -p
 
@@ -15,7 +15,8 @@ HEADER = $(INCLUDE)/push_swap.h
 SRCS = $(SRC)/main.c \
 	$(SRC)/parcer.c \
 	$(SRC)/push_stack.c \
-	$(SRC)/stack_operations.c
+	$(SRC)/stack_operations.c \
+	$(SRC)/utils.c
 
 OBJS = $(SRCS:$(SRC)/%.c=$(OBJ_DIR)/%.o)
 

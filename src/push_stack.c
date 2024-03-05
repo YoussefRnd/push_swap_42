@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:06:30 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/03 16:16:58 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/05 18:25:04 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_stack	*ft_input_sub_process(char **argv)
 	while (tmp[i])
 	{
 		ft_add_back(&a, ft_stack_new(ft_atoi(tmp[i])));
+		free(tmp[i]);
 		i++;
 	}
 	free(tmp);

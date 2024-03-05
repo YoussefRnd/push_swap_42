@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 19:36:04 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/05 18:56:13 by yboumlak         ###   ########.fr       */
+/*   Created: 2024/03/05 18:55:33 by yboumlak          #+#    #+#             */
+/*   Updated: 2024/03/05 19:03:30 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_arrlen(char **arr)
 {
-	t_stack	*a;
-	t_stack	*current;
+	int	i;
 
-	if (argc < 2)
-		return (0);
-	if (!ft_parser(argc, argv))
-		return (1);
-	a = ft_input_process(argc, argv);
-	current = a;
-	while (current)
+	i = 0;
+	while (arr[i])
+		i++;
+	return (i);
+}
+
+void	ft_free(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
 	{
-		printf("%d\n", current->value);
-		current = current->next;
+		free(arr[i]);
+		i++;
 	}
-	ft_stack_free(a);
-	return (0);
+	free(arr);
 }

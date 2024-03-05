@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 13:21:48 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/03 15:36:03 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/05 18:25:45 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,16 @@ t_stack	*ft_stack_new(int value)
 	new_stack->value = value;
 	new_stack->next = NULL;
 	return (new_stack);
+}
+
+void	ft_stack_free(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	while (stack)
+	{
+		tmp = stack;
+		stack = stack->next;
+		free(tmp);
+	}
 }

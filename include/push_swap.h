@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/03 16:19:42 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:04:01 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-char				**ft_parser(char **inputs);
+bool				ft_parser(int argc, char **arr);
 t_stack				*ft_input_process(int argc, char **argv);
 t_stack				*ft_stack_new(int value);
 t_stack				*ft_stacklast(t_stack *stack);
 void				ft_add_back(t_stack **stack, t_stack *new_stack);
+void				ft_stack_free(t_stack *stack);
+void				ft_free(char **arr);
+int					ft_arrlen(char **arr);
 
 #endif
