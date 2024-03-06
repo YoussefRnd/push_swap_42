@@ -1,5 +1,5 @@
 NAME = push_swap
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
 MK = mkdir -p
@@ -18,7 +18,9 @@ SRCS = $(SRC)/main.c \
 	$(SRC)/stack_operations.c \
 	$(SRC)/utils.c \
 	$(SRC)/push.c \
-	$(SRC)/swap.c
+	$(SRC)/swap.c \
+	$(SRC)/rotate.c \
+	$(SRC)/reverse_rotate.c 
 
 OBJS = $(SRCS:$(SRC)/%.c=$(OBJ_DIR)/%.o)
 

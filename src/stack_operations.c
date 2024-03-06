@@ -6,31 +6,35 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 13:21:48 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/05 18:25:45 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:00:55 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack	*ft_stacklast(t_stack *stack)
+t_stack	*ft_stack_last(t_stack *stack)
 {
 	if (stack == NULL)
 		return (NULL);
 	while (stack->next)
-	{
 		stack = stack->next;
-	}
 	return (stack);
 }
 
 void	ft_add_back(t_stack **stack, t_stack *new_stack)
 {
-	if (!stack)
+	t_stack	*last;
+
+	if (!stack || !new_stack)
 		return ;
 	if (!*stack)
 		*stack = new_stack;
 	else
-		(ft_stacklast(*stack))->next = new_stack;
+	{
+		last = ft_stack_last(*stack);
+		last->next = new_stack;
+		new_stack->prev = last;
+	}
 }
 
 t_stack	*ft_stack_new(int value)
@@ -42,12 +46,13 @@ t_stack	*ft_stack_new(int value)
 		return (NULL);
 	new_stack->value = value;
 	new_stack->next = NULL;
+	new_stack->prev = NULL;
 	return (new_stack);
 }
 
 void	ft_stack_free(t_stack *stack)
 {
-	t_stack	*tmp;
+	t_stack *tmp;
 
 	while (stack)
 	{
