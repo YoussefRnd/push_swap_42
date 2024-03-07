@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   stack_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 20:23:35 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/06 15:11:19 by yboumlak         ###   ########.fr       */
+/*   Created: 2024/03/06 18:33:30 by yboumlak          #+#    #+#             */
+/*   Updated: 2024/03/06 19:41:35 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	push(t_stack **x, t_stack **y, char stack_name)
+int	find_max(t_stack *stack)
 {
-	t_stack	*temp;
+	int	i;
 
-	if (*x)
+	i = stack->value;
+	while (stack)
 	{
-		temp = *x;
-		*x = (*x)->next;
-		if (*x)
-			(*x)->prev = NULL;
-		temp->next = *y;
-		if (*y)
-			(*y)->prev = temp;
-		*y = temp;
-		if (stack_name == 'a')
-			ft_putstr_fd("pa\n", 1);
-		else if (stack_name == 'b')
-			ft_putstr_fd("pb\n", 1);
+		if (stack->value > i)
+			i = stack->value;
+		stack = stack->next;
 	}
+	return (i);
+}
+
+int	find_min(t_stack *stack)
+{
+	int	i;
+
+	i = stack->value;
+	while (stack)
+	{
+		if (stack->value < i)
+			i = stack->value;
+		stack = stack->next;
+	}
+	return (i);
 }

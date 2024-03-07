@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:36:04 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/06 12:25:52 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/07 16:24:47 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	print_stacks(t_stack *a, t_stack *b)
 	{
 		if (a)
 		{
-			printf("%d <- %d -> %d\t\t\t\t", (a->prev ? a->prev->value : -256),
-				a->value, (a->next ? a->next->value : -256));
+			printf("%d <- %d -> %d\t\t\t\t\t", (a->prev ? a->prev->value :
+					-256), a->value, (a->next ? a->next->value : -256));
 			a = a->next;
 		}
 		else
@@ -50,8 +50,7 @@ int	main(int argc, char **argv)
 		return (1);
 	a = ft_input_process(argc, argv);
 	print_stacks(a, b);
-	// reverse_rotate(&a, 'a');
-	push(&a, &b, 'a');
+	bubble_sort_stack(&a);
 	print_stacks(a, b);
 	ft_stack_free(a);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 21:18:42 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/06 10:51:52 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:16:29 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	swap(t_stack **stack, char stack_name)
 		if (first->next)
 			first->next->prev = first;
 		second->next = first;
+		second->prev = NULL;
 		first->prev = second;
 		*stack = second;
 		if (stack_name == 'a')

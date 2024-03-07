@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 10:35:47 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/06 11:42:47 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:37:27 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	rr(t_stack **x, t_stack **y)
 {
 	rotate(x, 'x');
 	rotate(y, 'y');
-	ft_putstr_fd("rr", 1);
+	ft_putstr_fd("rr\n", 1);
 }

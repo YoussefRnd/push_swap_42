@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/06 12:01:59 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/07 16:25:05 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,11 @@ void				rr(t_stack **x, t_stack **y);
 
 void				reverse_rotate(t_stack **stack, char stack_name);
 void				rrr(t_stack **x, t_stack **y);
+
+int					find_min(t_stack *stack);
+int					find_max(t_stack *stack);
+
+void				sort_three_elements(t_stack **stack);
+void				bubble_sort_stack(t_stack **stack);
+
 #endif
