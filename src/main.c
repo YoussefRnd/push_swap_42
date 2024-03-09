@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:36:04 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/09 11:57:02 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/09 14:18:31 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc < 2 || (argc == 2 && !argv[1][0]))
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	if (!ft_parser(argc, argv))
-		return (1);
-	a = stack_init(argc, argv);
+	else if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	stack_init(argc, argv);
 	print_stacks(a, b);
 	sort_three(&a);
 	print_stacks(a, b);

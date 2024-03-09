@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parcer.c                                           :+:      :+:    :+:   */
+/*   check_syntax.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:19:13 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/05 18:53:09 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/09 14:27:04 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,24 +78,7 @@ bool	check_numbers(char **arr, int start, int end)
 	return (true);
 }
 
-bool	ft_parser(int argc, char **arr)
+bool	check_syntax(char *input)
 {
-	char	**split_arr;
-
-	if (argc == 2)
-	{
-		split_arr = ft_split(arr[1], ' ');
-		if (!check_numbers(split_arr, 0, ft_arrlen(split_arr))
-			|| is_there_duplicate(split_arr))
-		{
-			ft_free(split_arr);
-			return (false);
-		}
-		ft_free(split_arr);
-	}
-	else if (!check_numbers(arr, 1, argc) || is_there_duplicate(arr))
-	{
-		return (false);
-	}
-	return (true);
+	
 }

@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/09 11:59:49 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/09 14:06:19 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-bool				ft_parser(int argc, char **arr);
+bool				check_syntax(int argc, char **arr);
 t_stack				*stack_init(int argc, char **argv);
 t_stack				*ft_stack_new(int value);
 t_stack				*ft_stack_last(t_stack *stack);
