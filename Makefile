@@ -14,7 +14,7 @@ HEADER = $(INCLUDE)/push_swap.h
 
 SRCS = $(SRC)/main.c \
 	$(SRC)/parcer.c \
-	$(SRC)/push_stack.c \
+	$(SRC)/stack_init.c \
 	$(SRC)/stack_utils1.c \
 	$(SRC)/stack_utils2.c \
 	$(SRC)/utils.c \
@@ -22,7 +22,8 @@ SRCS = $(SRC)/main.c \
 	$(SRC)/swap.c \
 	$(SRC)/rotate.c \
 	$(SRC)/reverse_rotate.c \
-	$(SRC)/sort.c 
+	$(SRC)/sort_three.c \
+	$(SRC)/sort.c
 
 OBJS = $(SRCS:$(SRC)/%.c=$(OBJ_DIR)/%.o)
 

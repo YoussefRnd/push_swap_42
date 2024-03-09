@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_stack.c                                       :+:      :+:    :+:   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:06:30 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/05 18:25:04 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/09 11:58:30 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack	*ft_input_sub_process(char **argv)
+t_stack	*stack_sub_init(char **argv)
 {
 	t_stack	*a;
 	char	**tmp;
@@ -31,7 +31,7 @@ t_stack	*ft_input_sub_process(char **argv)
 	return (a);
 }
 
-t_stack	*ft_input_process(int argc, char **argv)
+t_stack	*stack_init(int argc, char **argv)
 {
 	t_stack	*a;
 	int		i;
@@ -47,6 +47,6 @@ t_stack	*ft_input_process(int argc, char **argv)
 		}
 	}
 	else if (argc == 2)
-		a = ft_input_sub_process(argv);
+		a = stack_sub_init(argv);
 	return (a);
 }

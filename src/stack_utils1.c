@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_operations.c                                 :+:      :+:    :+:   */
+/*   stack_utils1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 13:21:48 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/06 12:00:55 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:33:23 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_stack	*ft_stack_new(int value)
 
 void	ft_stack_free(t_stack *stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	while (stack)
 	{
@@ -60,4 +60,21 @@ void	ft_stack_free(t_stack *stack)
 		stack = stack->next;
 		free(tmp);
 	}
+}
+
+int	ft_stack_size(t_stack *stack)
+{
+	int		i;
+	t_stack	*current;
+
+	if (!stack)
+		return (0);
+	i = 0;
+	current = stack;
+	while (current)
+	{
+		current = current->next;
+		i++;
+	}
+	return (i);
 }
