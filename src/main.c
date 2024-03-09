@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:36:04 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/09 14:18:31 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/09 15:18:58 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	stack_init(argc, argv);
+	stack_init(&a, argv);
 	print_stacks(a, b);
 	sort_three(&a);
 	print_stacks(a, b);
-	ft_stack_free(a);
+	ft_stack_free(&a);
 	return (0);
 }

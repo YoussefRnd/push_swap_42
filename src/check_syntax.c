@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:19:13 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/09 14:27:04 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/09 15:22:23 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,71 +14,41 @@
 
 int	is_number(char *arr)
 {
-	int	len;
-
 	if ((*arr == '+' || *arr == '-') && *(arr + 1) != '\0')
 		arr++;
 	while (*arr)
 	{
-		len = ft_strlen(arr);
 		if (!ft_isdigit(*arr))
 		{
-			return (-1);
-		}
-		if (len > 10 || (len == 10 && ft_strncmp(arr, "2147483647", 10) > 0))
-		{
-			return (-2);
+			return (false);
 		}
 		arr++;
-	}
-	return (1);
-}
-
-int	is_there_duplicate(char **arr)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (arr[i])
-	{
-		j = i + 1;
-		while (arr[j])
-		{
-			if ((ft_strncmp(arr[i], arr[j], INT_MAX) == 0))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-bool	check_numbers(char **arr, int start, int end)
-{
-	int	i;
-	int	is_num;
-
-	i = start;
-	while (i < end && arr[i])
-	{
-		is_num = is_number(arr[i]);
-		if (is_num == -1)
-		{
-			ft_putstr_fd("Error: NOT A NUMBER!!", 2);
-			return (false);
-		}
-		else if (is_num == -2)
-		{
-			ft_putstr_fd("Error: NUMBER IS LARGER THAN INT_MAX!!", 2);
-			return (false);
-		}
-		i++;
 	}
 	return (true);
 }
 
+int	check_duplicate(t_stack *stack, int num)
+{
+	if (!stack)
+		return (false);
+	while (stack)
+	{
+		if (stack->value == num)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
 bool	check_syntax(char *input)
 {
-	
+	if (is_number(input))
+		return (true);
+	return (false);
+}
+
+void	free_errors(t_stack **stack)
+{
+	ft_stack_free(stack);
+	ft_putstr_fd("Error!\n", 2);
 }
