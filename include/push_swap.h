@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/09 15:24:06 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/10 14:50:06 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_stack
 
 bool				check_syntax(char *input);
 int					check_duplicate(t_stack *stack, int num);
-void				stack_init(t_stack **stack, char **argv);
+void				stack_init(t_stack **stack, char **argv, int argc);
 t_stack				*ft_stack_new(int value);
 t_stack				*ft_stack_last(t_stack *stack);
 void				ft_add_back(t_stack **stack, t_stack *new_stack);

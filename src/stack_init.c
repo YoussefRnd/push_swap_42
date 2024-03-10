@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:06:30 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/09 15:25:41 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/10 14:49:35 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,20 @@ void	push_stack(t_stack **stack, int num)
 	ft_add_back(stack, new_node);
 }
 
-void	stack_init(t_stack **stack, char **argv)
+void	stack_init(t_stack **stack, char **argv, int argc)
 {
 	int	i;
 	int	num;
 
-	i = 0;
+	if (argc == 2)
+		i = 0;
+	else
+		i = 1;
 	while (argv[i])
 	{
-		if (check_syntax(argv[i]))
-			free_errors(stack);
 		num = ft_atoi(argv[i]);
+		if (!check_syntax(argv[i]))
+			free_errors(stack);
 		if (num > INT_MAX || num < INT_MIN)
 			free_errors(stack);
 		if (check_duplicate(*stack, num))
