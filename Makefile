@@ -13,10 +13,9 @@ INCLUDE = ./include
 HEADER = $(INCLUDE)/push_swap.h
 
 SRCS = $(SRC)/main.c \
-	$(SRC)/parcer.c \
+	$(SRC)/check_syntax.c \
 	$(SRC)/stack_init.c \
-	$(SRC)/stack_utils1.c \
-	$(SRC)/stack_utils2.c \
+	$(SRC)/stack_utils.c \
 	$(SRC)/utils.c \
 	$(SRC)/push.c \
 	$(SRC)/swap.c \

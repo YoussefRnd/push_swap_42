@@ -6,11 +6,25 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:51:28 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/09 11:06:01 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/09 14:07:09 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	find_max(t_stack *stack)
+{
+	int	i;
+
+	i = stack->value;
+	while (stack)
+	{
+		if (stack->value > i)
+			i = stack->value;
+		stack = stack->next;
+	}
+	return (i);
+}
 
 void	sort_three(t_stack **stack)
 {

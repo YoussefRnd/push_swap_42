@@ -6,47 +6,49 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:06:30 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/09 11:58:30 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/10 16:27:38 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack	*stack_sub_init(char **argv)
+void	push_stack(t_stack **stack, int num)
 {
-	t_stack	*a;
-	char	**tmp;
-	int		i;
+	t_stack	*new_node;
 
-	a = NULL;
-	tmp = ft_split(argv[1], ' ');
-	i = 0;
-	while (tmp[i])
+	new_node = ft_stack_new(num);
+	if (!new_node)
 	{
-		ft_add_back(&a, ft_stack_new(ft_atoi(tmp[i])));
-		free(tmp[i]);
-		i++;
+		ft_stack_free(stack);
+		return ;
 	}
-	free(tmp);
-	return (a);
+	ft_add_back(stack, new_node);
 }
 
-t_stack	*stack_init(int argc, char **argv)
+void	stack_init(t_stack **stack, char **argv, int argc)
 {
-	t_stack	*a;
-	int		i;
+	int	i;
+	int	num;
 
-	a = NULL;
-	if (argc > 2)
+	if (argc == 2)
 	{
-		i = 1;
-		while (i < argc)
-		{
-			ft_add_back(&a, ft_stack_new(ft_atoi(argv[i])));
-			i++;
-		}
+		i = 0;
+		argv = ft_split(argv[1], ' ');
 	}
-	else if (argc == 2)
-		a = stack_sub_init(argv);
-	return (a);
+	else
+		i = 1;
+	while (argv[i])
+	{
+		num = ft_atoi(argv[i]);
+		if (!is_valid_integer(argv[i]))
+			free_errors(stack, "Error: Invalid number!!");
+		if (num > INT_MAX || num < INT_MIN)
+			free_errors(stack, "Error: Number out of range!!");
+		if (check_duplicate(*stack, num))
+			free_errors(stack, "Error: Duplicate found!!");
+		push_stack(stack, num);
+		i++;
+	}
+	if (argc == 2)
+		ft_free(argv);
 }
