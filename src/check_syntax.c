@@ -6,28 +6,26 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:19:13 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/10 13:22:56 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/10 16:24:54 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	is_number(char *arr)
+bool	is_valid_integer(char *input)
 {
-	if ((*arr == '+' || *arr == '-') && *(arr + 1) != '\0')
-		arr++;
-	while (*arr)
+	if ((*input == '+' || *input == '-') && *(input + 1) != '\0')
+		input++;
+	while (*input)
 	{
-		if (!ft_isdigit(*arr))
-		{
+		if (!ft_isdigit(*input))
 			return (false);
-		}
-		arr++;
+		input++;
 	}
 	return (true);
 }
 
-int	check_duplicate(t_stack *stack, int num)
+bool	check_duplicate(t_stack *stack, int num)
 {
 	if (!stack)
 		return (false);
@@ -40,15 +38,9 @@ int	check_duplicate(t_stack *stack, int num)
 	return (false);
 }
 
-bool	check_syntax(char *input)
+void	free_errors(t_stack **stack, char *msg)
 {
-	if (is_number(input))
-		return (true);
-	return (false);
-}
-
-void	free_errors(t_stack **stack)
-{
+	ft_putstr_fd(msg, STDERR_FILENO);
 	ft_stack_free(stack);
-	ft_putstr_fd("Error!\n", 2);
+	exit(1);
 }
