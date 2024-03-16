@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:06:30 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/16 15:46:15 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/16 20:41:16 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	stack_init(t_stack **stack, char **argv, int argc)
 	int		i;
 	int		j;
 	char	**split_args;
-	int		num;
+	long	num;
 
 	i = 1;
 	while (i < argc)
@@ -39,7 +39,7 @@ void	stack_init(t_stack **stack, char **argv, int argc)
 		j = 0;
 		while (split_args[j])
 		{
-			num = ft_atoi(split_args[j]);
+			num = ft_atol(split_args[j]);
 			if (!is_valid_integer(split_args[j]))
 				free_errors(stack, "Error: Invalid number!!");
 			if (num > INT_MAX || num < INT_MIN)

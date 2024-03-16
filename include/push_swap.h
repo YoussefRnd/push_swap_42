@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/10 16:15:52 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/16 20:40:57 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int					ft_stack_size(t_stack *stack);
 void				free_errors(t_stack **stack, char *msg);
 void				ft_free(char **arr);
 int					ft_arrlen(char **arr);
+
+long				ft_atol(const char *str);
 
 void				push(t_stack **x, t_stack **y, char stack_name);
 
