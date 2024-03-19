@@ -22,7 +22,9 @@ SRCS = $(SRC)/main.c \
 	$(SRC)/rotate.c \
 	$(SRC)/reverse_rotate.c \
 	$(SRC)/sort_three.c \
-	$(SRC)/sort.c
+	$(SRC)/sort.c \
+	$(SRC)/set_index.c \
+	$(SRC)/quickSort.c
 
 OBJS = $(SRCS:$(SRC)/%.c=$(OBJ_DIR)/%.o)
 

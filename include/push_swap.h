@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/16 20:40:57 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:58:28 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ void				rrr(t_stack **x, t_stack **y);
 int					find_max(t_stack *stack);
 
 void				sort_three(t_stack **stack);
-void				sort(t_stack **a, t_stack **b);
+// void				sort(t_stack **a, t_stack **b);
+void				move_to_b(t_stack **a, t_stack **b);
+void				move_back_to_a(t_stack **a, t_stack **b);
+
+void				set_sorted_index(t_stack *stack);
+void				quick_sort(int *arr, int low, int high);
 
 #endif
