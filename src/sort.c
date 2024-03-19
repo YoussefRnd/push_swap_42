@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:19:50 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/19 01:33:59 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/19 03:23:13 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,6 @@ void	move_to_b(t_stack **a, t_stack **b)
 		else if ((*a)->index >= end_range)
 			rotate(a, 'a');
 	}
-}
-
-int	find_max_index(t_stack *s)
-{
-	int	max_index;
-
-	max_index = -1;
-	while (s)
-	{
-		if (s->index > max_index)
-			max_index = s->index;
-		s = s->next;
-	}
-	return (max_index);
 }
 
 void	move_back_to_a(t_stack **a, t_stack **b)

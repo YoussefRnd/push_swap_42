@@ -1,40 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 17:51:28 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/09 14:07:09 by yboumlak         ###   ########.fr       */
+/*   Created: 2024/03/19 03:21:54 by yboumlak          #+#    #+#             */
+/*   Updated: 2024/03/19 04:04:04 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	find_max(t_stack *stack)
+void	ft_free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	while (*stack)
+	{
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
+	}
+	*stack = NULL;
+}
+
+void	ft_free(char **arr)
 {
 	int	i;
 
-	i = stack->value;
-	while (stack)
+	i = 0;
+	while (arr[i])
 	{
-		if (stack->value > i)
-			i = stack->value;
-		stack = stack->next;
+		free(arr[i]);
+		i++;
 	}
-	return (i);
+	free(arr);
+	*arr = NULL;
 }
 
-void	sort_three(t_stack **stack)
+void	ft_free_errors(t_stack **stack, char *msg)
 {
-	int	max;
-
-	max = find_max(*stack);
-	if (max == (*stack)->value)
-		rotate(stack, 'a');
-	else if (max == (*stack)->next->value)
-		reverse_rotate(stack, 'a');
-	if ((*stack)->value > (*stack)->next->value)
-		swap(stack, 'a');
+	ft_putstr_fd(msg, STDERR_FILENO);
+	ft_free_stack(stack);
+	exit(1);
 }

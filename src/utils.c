@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:55:33 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/16 20:42:33 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/19 03:21:45 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,17 @@ int	ft_arrlen(char **arr)
 	return (i);
 }
 
-void	ft_free(char **arr)
+int	is_sorted(t_stack *x)
 {
-	int	i;
-
-	i = 0;
-	while (arr[i])
+	if (x == NULL)
+		return (false);
+	while (x->next != NULL)
 	{
-		free(arr[i]);
-		i++;
+		if (x->value > x->next->value)
+			return (false);
+		x = x->next;
 	}
-	free(arr);
-	*arr = NULL;
+	return (true);
 }
 
 long	ft_atol(const char *str)

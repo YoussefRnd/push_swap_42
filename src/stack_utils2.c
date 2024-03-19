@@ -1,39 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_syntax.c                                     :+:      :+:    :+:   */
+/*   stack_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 22:19:13 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/19 03:25:45 by yboumlak         ###   ########.fr       */
+/*   Created: 2024/03/19 03:42:04 by yboumlak          #+#    #+#             */
+/*   Updated: 2024/03/19 03:42:51 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-bool	is_valid_integer(char *input)
+int	find_max_index(t_stack *s)
 {
-	if ((*input == '+' || *input == '-') && *(input + 1) != '\0')
-		input++;
-	while (*input)
+	int	max_index;
+
+	max_index = -1;
+	while (s)
 	{
-		if (!ft_isdigit(*input))
-			return (false);
-		input++;
+		if (s->index > max_index)
+			max_index = s->index;
+		s = s->next;
 	}
-	return (true);
+	return (max_index);
 }
 
-bool	check_duplicate(t_stack *stack, int num)
+int	find_max_value(t_stack *stack)
 {
-	if (!stack)
-		return (false);
+	int	i;
+
+	i = stack->value;
 	while (stack)
 	{
-		if (stack->value == num)
-			return (true);
+		if (stack->value > i)
+			i = stack->value;
 		stack = stack->next;
 	}
-	return (false);
+	return (i);
+}
+
+int	find_min_value(t_stack *stack)
+{
+	int	i;
+
+	i = stack->value;
+	while (stack)
+	{
+		if (stack->value < i)
+			i = stack->value;
+		stack = stack->next;
+	}
+	return (i);
 }
