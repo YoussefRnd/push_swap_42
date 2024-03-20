@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 03:21:54 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/19 04:04:04 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/20 01:48:29 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	ft_free(char **arr)
 		i++;
 	}
 	free(arr);
-	*arr = NULL;
 }
 
 void	ft_free_errors(t_stack **stack, char *msg)

@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:06:30 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/19 04:00:58 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/20 01:42:48 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void	stack_init(t_stack **stack, char **argv, int argc)
 		{
 			num = ft_atol(split_args[j]);
 			if (!is_valid_integer(split_args[j]))
-				ft_free_errors(stack, "Error: Invalid number!!");
+				ft_free_errors(stack, "Error\n");
 			if (num > INT_MAX || num < INT_MIN)
-				ft_free_errors(stack, "Error: Number out of range!!");
+				ft_free_errors(stack, "Error\n");
 			if (check_duplicate(*stack, num))
-				ft_free_errors(stack, "Error: Duplicate found!!");
+				ft_free_errors(stack, "Error\n");
 			push_stack(stack, num);
 			j++;
 		}

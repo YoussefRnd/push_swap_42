@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:51:28 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/19 04:05:46 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/20 01:30:13 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ void	sort_five(t_stack **a, t_stack **b)
 		min = find_min_value(*a);
 		while ((*a)->value != min)
 			rotate(a, 'a');
-		push(b, a, 'b');
+		push(a, b, 'b');
 		i++;
 	}
 	sort_three(a);
 	while (i > 0)
 	{
-		push(a, b, 'a');
+		push(b, a, 'a');
 		i--;
 	}
 }

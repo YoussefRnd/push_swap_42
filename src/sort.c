@@ -6,45 +6,49 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:19:50 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/19 03:23:13 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/20 02:17:02 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+static void	process_index(t_stack **a, t_stack **b, int *first_range,
+		int *end_range, int size)
+{
+	if ((*a)->index >= *first_range && (*a)->index < *end_range)
+	{
+		push(a, b, 'b');
+		if (*end_range < size)
+		{
+			(*first_range)++;
+			(*end_range)++;
+		}
+	}
+	else if ((*a)->index < *first_range)
+	{
+		push(a, b, 'b');
+		rotate(b, 'b');
+		if (*end_range < size)
+		{
+			(*first_range)++;
+			(*end_range)++;
+		}
+	}
+	else if ((*a)->index >= *end_range)
+		rotate(a, 'a');
+}
+
 void	move_to_b(t_stack **a, t_stack **b)
 {
 	int	first_range;
-	int	end_range;
 	int	size;
+	int	end_range;
 
-	size = ft_stack_size(*a);
 	first_range = 0;
+	size = ft_stack_size(*a);
 	end_range = 8.5 + (size * 0.055);
 	while (*a)
-	{
-		if ((*a)->index >= first_range && (*a)->index < end_range)
-		{
-			push(a, b, 'b');
-			if (end_range < size)
-			{
-				first_range++;
-				end_range++;
-			}
-		}
-		else if ((*a)->index < first_range)
-		{
-			push(a, b, 'b');
-			rotate(b, 'b');
-			if (end_range < size)
-			{
-				first_range++;
-				end_range++;
-			}
-		}
-		else if ((*a)->index >= end_range)
-			rotate(a, 'a');
-	}
+		process_index(a, b, &first_range, &end_range, size);
 }
 
 void	move_back_to_a(t_stack **a, t_stack **b)
@@ -65,16 +69,11 @@ void	move_back_to_a(t_stack **a, t_stack **b)
 				temp = temp->next;
 				i++;
 			}
-			if (i < max_index / 2)
-			{
-				while ((*b)->index != max_index)
+			while ((*b)->index != max_index)
+				if (i < max_index / 2)
 					rotate(b, 'b');
-			}
-			else
-			{
-				while ((*b)->index != max_index)
+				else
 					reverse_rotate(b, 'b');
-			}
 		}
 		push(b, a, 'a');
 	}
