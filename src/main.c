@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:36:04 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/20 02:09:11 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/20 22:00:09 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int argc, char **argv)
 			move_back_to_a(&a, &b);
 		}
 	}
-	print_stacks(a, b);
+	// print_stacks(a, b);
 	ft_free_stack(&a);
 	return (0);
 }
