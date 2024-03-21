@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 02:27:04 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/21 03:22:09 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/21 03:43:41 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,19 @@ void	operations(t_stack **a, t_stack **b, char *command)
 		exit(1);
 	}
 }
-// int get_next_line(int fd);
+// int		get_next_line(int fd);
 
-void read_commands(t_stack **a, t_stack **b)
+void	read_commands(t_stack **a, t_stack **b)
 {
-	char *line;
-	int ret;
+	char	*commad;
 
-	line = NULL;
-	while ((ret = get_next_line(0)) > 0)
+	commad = get_next_line(0);
+	while (commad)
 	{
-		operations(a, b, line);
-		free(line);
-	}
-	if (ret == -1)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
+		operations(a, b, commad);
+		free(commad);
 	}
 }
-
 
 int	main(int argc, char **argv)
 {

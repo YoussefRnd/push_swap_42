@@ -8,6 +8,7 @@ MK = mkdir -p
 LIBFT_DIR = ./lib/Libft
 
 SRC = ./src
+SRC_BONUS = ./src/bonus
 OBJ_DIR = ./obj
 INCLUDE = ./include
 
@@ -28,16 +29,39 @@ SRCS = $(SRC)/main.c \
 	$(SRC)/set_index.c \
 	$(SRC)/quickSort.c \
 	$(SRC)/free.c \
-	
-SRCS_BONUS = $(SRC)/bonus/checker.c
+
+SRCS_BONUS = $(SRC_BONUS)/checker.c \
+	lib/get_next_line_42/get_next_line.c \
+
+SRCS_COMMON = $(SRC)/check_syntax.c \
+	$(SRC)/stack_init.c \
+	$(SRC)/stack_utils.c \
+	$(SRC)/stack_utils2.c \
+	$(SRC)/utils.c \
+	$(SRC)/push.c \
+	$(SRC)/swap.c \
+	$(SRC)/rotate.c \
+	$(SRC)/reverse_rotate.c \
+	$(SRC)/sort_basic.c \
+	$(SRC)/sort.c \
+	$(SRC)/set_index.c \
+	$(SRC)/quickSort.c \
+	$(SRC)/free.c \
 
 OBJS = $(SRCS:$(SRC)/%.c=$(OBJ_DIR)/%.o)
 
-OBJS_BONUS = $(SRCS_BONUS:$(SRC)/%.c=$(OBJ_DIR)/%.o)
+OBJS_BONUS = $(SRCS_BONUS:$(SRC_BONUS)/%.c=$(OBJ_DIR)/%.o)
+
+IN_COMMON = $(SRCS_COMMON:$(SRC)/%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC)/%.c $(HEADER)
+	@$(MK) $(OBJ_DIR)
+	@echo "Compiling $<..."
+	@$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_BONUS)/%.c $(HEADER)
 	@$(MK) $(OBJ_DIR)
 	@echo "Compiling $<..."
 	@$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
@@ -51,11 +75,11 @@ $(NAME): $(OBJS) $(HEADER)
 
 bonus: $(BONUS)
 
-$(BONUS): $(OBJS) $(HEADER)
+$(BONUS): $(OBJS_BONUS) $(IN_COMMON) $(HEADER)
 	@echo "Making in $(LIBFT_DIR)..."
 	@make -s -C $(LIBFT_DIR)
 	@echo "Compiling $(BONUS)..."
-	@$(CC) $(CFLAGS) -I $(INCLUDE) -o $(BONUS) $(OBJS) -L $(LIBFT_DIR) -lft
+	@$(CC) $(CFLAGS) -I $(INCLUDE) -o $(BONUS) $(OBJS_BONUS) $(IN_COMMON) -L $(LIBFT_DIR) -lft
 	@echo "$(BONUS) compiled successfully!"
 
 clean:	

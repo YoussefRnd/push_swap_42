@@ -5,8 +5,8 @@
 			"name": "(gdb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/push_swap", // replace <your-program> with your executable
-			"args": ["4", "3", "2", "1", "5"], // command line arguments for your program
+			"program": "${workspaceFolder}/checker",
+			"args": ["4", "3", "2", "1", "5"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
 			"environment": [],

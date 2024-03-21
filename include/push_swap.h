@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/20 23:59:59 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/21 03:30:36 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../lib/Libft/libft.h"
+# include "../lib/get_next_line_42/get_next_line.h"
 # include <limits.h>
 # include <stdbool.h>
 
