@@ -1,4 +1,5 @@
 NAME = push_swap
+BONUS = checker
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
@@ -27,8 +28,12 @@ SRCS = $(SRC)/main.c \
 	$(SRC)/set_index.c \
 	$(SRC)/quickSort.c \
 	$(SRC)/free.c \
+	
+SRCS_BONUS = $(SRC)/bonus/checker.c
 
 OBJS = $(SRCS:$(SRC)/%.c=$(OBJ_DIR)/%.o)
+
+OBJS_BONUS = $(SRCS_BONUS:$(SRC)/%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
@@ -43,6 +48,15 @@ $(NAME): $(OBJS) $(HEADER)
 	@echo "Compiling $(NAME)..."
 	@$(CC) $(CFLAGS) -I $(INCLUDE) -o $(NAME) $(OBJS) -L $(LIBFT_DIR) -lft
 	@echo "$(NAME) compiled successfully!"
+
+bonus: $(BONUS)
+
+$(BONUS): $(OBJS) $(HEADER)
+	@echo "Making in $(LIBFT_DIR)..."
+	@make -s -C $(LIBFT_DIR)
+	@echo "Compiling $(BONUS)..."
+	@$(CC) $(CFLAGS) -I $(INCLUDE) -o $(BONUS) $(OBJS) -L $(LIBFT_DIR) -lft
+	@echo "$(BONUS) compiled successfully!"
 
 clean:	
 	@echo "Cleaning objects..."
