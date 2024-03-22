@@ -1,34 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 20:23:35 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/06 15:11:19 by yboumlak         ###   ########.fr       */
+/*   Created: 2024/03/19 03:21:54 by yboumlak          #+#    #+#             */
+/*   Updated: 2024/03/22 01:47:25 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap_bonus.h"
 
-void	push(t_stack **x, t_stack **y, char stack_name)
+void	ft_free_stack(t_stack **stack)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 
-	if (*x)
+	while (*stack)
 	{
-		temp = *x;
-		*x = (*x)->next;
-		if (*x)
-			(*x)->prev = NULL;
-		temp->next = *y;
-		if (*y)
-			(*y)->prev = temp;
-		*y = temp;
-		if (stack_name == 'a')
-			ft_putstr_fd("pa\n", 1);
-		else if (stack_name == 'b')
-			ft_putstr_fd("pb\n", 1);
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
 	}
+	*stack = NULL;
+}
+
+void	ft_free(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
+
+void	ft_free_errors(t_stack **stack, char *msg)
+{
+	ft_putstr_fd(msg, STDERR_FILENO);
+	ft_free_stack(stack);
+	exit(1);
 }

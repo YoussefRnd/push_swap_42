@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:04:40 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/01/12 18:39:34 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/22 00:44:53 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	*read_file(int fd, char *stash)
 			return (NULL);
 		}
 		buffer[read_bytes] = '\0';
-		stash = ft_strjoin(stash, buffer);
+		stash = ft_strjoin_s(stash, buffer);
 		if (ft_strchr(stash, '\n'))
 			break ;
 	}
@@ -86,50 +86,39 @@ char	*read_file(int fd, char *stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash[OPEN_MAX];
+	static char	*stash = NULL;
 	char		*line;
 
-	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	stash[fd] = read_file(fd, stash[fd]);
-	if (!stash[fd])
+	stash = read_file(fd, stash);
+	if (!stash)
 		return (NULL);
-	line = process_line(&stash[fd]);
+	line = process_line(&stash);
 	if (!line)
 	{
-		free(stash[fd]);
-		stash[fd] = NULL;
+		free(stash);
+		stash = NULL;
 		return (NULL);
 	}
-	stash[fd] = update_stash(stash[fd]);
+	stash = update_stash(stash);
 	return (line);
 }
-/* 
+/*
 int	main(void)
 {
-	int		fd1;
-	int		fd2;
 	char	*line;
+	int		fd;
+	int		i;
 
-	fd1 = open("file1.txt", O_RDONLY);
-	fd2 = open("file2.txt", O_RDONLY);
-	if (fd1 == -1 || fd2 == -1)
+	i = 0;
+	fd = open("file1.txt", O_RDONLY);
+	while ((line = get_next_line(fd)))
 	{
-		perror("Error opening file");
-		return (1);
-	}
-	while ((line = get_next_line(fd1)) != NULL)
-	{
-		printf("File1: %s", line);
+		printf("%s", line);
 		free(line);
 	}
-	while ((line = get_next_line(fd2)) != NULL)
-	{
-		printf("File2: %s", line);
-		free(line);
-	}
-	close(fd1);
-	close(fd2);
-	return (0);
+	close(fd);
+	// pause();
 }
  */

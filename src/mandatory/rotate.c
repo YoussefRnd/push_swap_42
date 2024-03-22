@@ -6,11 +6,11 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 10:35:47 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/10 16:57:01 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/21 22:57:01 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	rotate(t_stack **stack, char stack_name)
 {

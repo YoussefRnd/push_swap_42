@@ -6,11 +6,11 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 12:38:36 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/21 03:38:07 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/22 00:45:21 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strjoin_s(char *s1, char *s2)
 {

@@ -7,61 +7,50 @@ MK = mkdir -p
 
 LIBFT_DIR = ./lib/Libft
 
-SRC = ./src
+SRC_MANDATORY = ./src/mandatory
 SRC_BONUS = ./src/bonus
 OBJ_DIR = ./obj
 INCLUDE = ./include
 
 HEADER = $(INCLUDE)/push_swap.h
 
-SRCS = $(SRC)/main.c \
-	$(SRC)/check_syntax.c \
-	$(SRC)/stack_init.c \
-	$(SRC)/stack_utils.c \
-	$(SRC)/stack_utils2.c \
-	$(SRC)/utils.c \
-	$(SRC)/push.c \
-	$(SRC)/swap.c \
-	$(SRC)/rotate.c \
-	$(SRC)/reverse_rotate.c \
-	$(SRC)/sort_basic.c \
-	$(SRC)/sort.c \
-	$(SRC)/set_index.c \
-	$(SRC)/quickSort.c \
-	$(SRC)/free.c \
+SRCS = $(SRC_MANDATORY)/main.c \
+	$(SRC_MANDATORY)/check_syntax.c \
+	$(SRC_MANDATORY)/stack_init.c \
+	$(SRC_MANDATORY)/stack_utils.c \
+	$(SRC_MANDATORY)/stack_utils2.c \
+	$(SRC_MANDATORY)/utils.c \
+	$(SRC_MANDATORY)/push.c \
+	$(SRC_MANDATORY)/swap.c \
+	$(SRC_MANDATORY)/rotate.c \
+	$(SRC_MANDATORY)/reverse_rotate.c \
+	$(SRC_MANDATORY)/sort_basic.c \
+	$(SRC_MANDATORY)/sort.c \
+	$(SRC_MANDATORY)/set_index.c \
+	$(SRC_MANDATORY)/quickSort.c \
+	$(SRC_MANDATORY)/free.c \
 
-SRCS_BONUS = $(SRC_BONUS)/checker.c \
-	lib/get_next_line_42/get_next_line.c \
+OBJS = $(SRCS:$(SRC_MANDATORY)/%.c=$(OBJ_DIR)/%.o)
 
-SRCS_COMMON = $(SRC)/check_syntax.c \
-	$(SRC)/stack_init.c \
-	$(SRC)/stack_utils.c \
-	$(SRC)/stack_utils2.c \
-	$(SRC)/utils.c \
-	$(SRC)/push.c \
-	$(SRC)/swap.c \
-	$(SRC)/rotate.c \
-	$(SRC)/reverse_rotate.c \
-	$(SRC)/sort_basic.c \
-	$(SRC)/sort.c \
-	$(SRC)/set_index.c \
-	$(SRC)/quickSort.c \
-	$(SRC)/free.c \
-
-OBJS = $(SRCS:$(SRC)/%.c=$(OBJ_DIR)/%.o)
+SRCS_BONUS = $(SRC_BONUS)/checker_bonus.c \
+	$(SRC_BONUS)/check_syntax_bonus.c \
+	$(SRC_BONUS)/stack_init_bonus.c \
+	$(SRC_BONUS)/stack_utils_bonus.c \
+	$(SRC_BONUS)/stack_utils2_bonus.c \
+	$(SRC_BONUS)/utils_bonus.c \
+	$(SRC_BONUS)/free_bonus.c \
+	$(SRC_BONUS)/get_next_line_bonus.c \
+	$(SRC_BONUS)/get_next_line_utils_bonus.c \
+	$(SRC_BONUS)/push_bonus.c \
+	$(SRC_BONUS)/swap_bonus.c \
+	$(SRC_BONUS)/rotate_bonus.c \
+	$(SRC_BONUS)/reverse_rotate_bonus.c \
 
 OBJS_BONUS = $(SRCS_BONUS:$(SRC_BONUS)/%.c=$(OBJ_DIR)/%.o)
 
-IN_COMMON = $(SRCS_COMMON:$(SRC)/%.c=$(OBJ_DIR)/%.o)
-
 all: $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC)/%.c $(HEADER)
-	@$(MK) $(OBJ_DIR)
-	@echo "Compiling $<..."
-	@$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
-
-$(OBJ_DIR)/%.o: $(SRC_BONUS)/%.c $(HEADER)
+$(OBJ_DIR)/%.o: $(SRC_MANDATORY)/%.c $(HEADER)
 	@$(MK) $(OBJ_DIR)
 	@echo "Compiling $<..."
 	@$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
@@ -75,23 +64,28 @@ $(NAME): $(OBJS) $(HEADER)
 
 bonus: $(BONUS)
 
-$(BONUS): $(OBJS_BONUS) $(IN_COMMON) $(HEADER)
+$(OBJ_DIR)/%.o: $(SRC_BONUS)/%.c $(HEADER)
+	@$(MK) $(OBJ_DIR)
+	@echo "Compiling $<..."
+	@$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+
+$(BONUS): $(OBJS_BONUS) $(HEADER)
 	@echo "Making in $(LIBFT_DIR)..."
 	@make -s -C $(LIBFT_DIR)
 	@echo "Compiling $(BONUS)..."
-	@$(CC) $(CFLAGS) -I $(INCLUDE) -o $(BONUS) $(OBJS_BONUS) $(IN_COMMON) -L $(LIBFT_DIR) -lft
+	@$(CC) $(CFLAGS) -I $(INCLUDE) -o $(BONUS) $(OBJS_BONUS) -L $(LIBFT_DIR) -lft
 	@echo "$(BONUS) compiled successfully!"
 
 clean:	
 	@echo "Cleaning objects..."
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(OBJS_BONUS)
 	@make -s clean -C $(LIBFT_DIR)
 
 fclean: clean
 	@echo "Cleaning executable..."
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(BONUS)
 	@make -s fclean -C $(LIBFT_DIR)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

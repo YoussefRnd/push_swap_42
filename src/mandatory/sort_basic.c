@@ -6,11 +6,11 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:51:28 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/20 01:30:13 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/21 22:57:16 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	sort_three(t_stack **stack)
 {

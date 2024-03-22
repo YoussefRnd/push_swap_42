@@ -6,11 +6,11 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:19:50 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/20 23:50:34 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/21 22:57:22 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 static void	adjust_ranges(int *first_range, int *end_range, int size)
 {

@@ -1,39 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_syntax.c                                     :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 22:19:13 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/19 03:25:45 by yboumlak         ###   ########.fr       */
+/*   Created: 2024/03/19 03:21:54 by yboumlak          #+#    #+#             */
+/*   Updated: 2024/03/21 22:56:30 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-bool	is_valid_integer(char *input)
+void	ft_free_stack(t_stack **stack)
 {
-	if ((*input == '+' || *input == '-') && *(input + 1) != '\0')
-		input++;
-	while (*input)
+	t_stack	*tmp;
+
+	while (*stack)
 	{
-		if (!ft_isdigit(*input))
-			return (false);
-		input++;
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
 	}
-	return (true);
+	*stack = NULL;
 }
 
-bool	check_duplicate(t_stack *stack, int num)
+void	ft_free(char **arr)
 {
-	if (!stack)
-		return (false);
-	while (stack)
+	int	i;
+
+	i = 0;
+	while (arr[i])
 	{
-		if (stack->value == num)
-			return (true);
-		stack = stack->next;
+		free(arr[i]);
+		i++;
 	}
-	return (false);
+	free(arr);
+}
+
+void	ft_free_errors(t_stack **stack, char *msg)
+{
+	ft_putstr_fd(msg, STDERR_FILENO);
+	ft_free_stack(stack);
+	exit(1);
 }

@@ -6,11 +6,11 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 19:48:18 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/19 03:35:16 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/21 22:57:11 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 static void	fill_array(int *arr, t_stack *stack, int size)
 {

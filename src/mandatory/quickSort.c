@@ -6,11 +6,11 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:39:34 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/18 02:48:36 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/21 22:56:49 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	swap_ints(int *a, int *b)
 {
