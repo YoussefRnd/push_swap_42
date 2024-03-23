@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 19:48:18 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/21 22:57:11 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/22 20:05:43 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	set_index(t_stack *stack, int *arr, int size)
 		{
 			if (temp->value == arr[i])
 			{
-				temp->index = i;
+				temp->sorted_index = i;
 				break ;
 			}
 			i++;

@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:51:28 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/21 22:57:16 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/23 00:10:41 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,47 @@ void	sort_three(t_stack **stack)
 		swap(stack, 'a');
 }
 
+void	sort_four(t_stack **a, t_stack **b)
+{
+	t_stack	*min;
+
+	min = find_min_index(*a);
+	while ((*a)->value != min->value)
+	{
+		if (min->index <= ft_stack_size(*a) / 2)
+			rotate(a, 'a');
+		else
+			reverse_rotate(a, 'a');
+	}
+	push(a, b, 'b');
+	sort_three(a);
+	push(b, a, 'a');
+}
+
 void	sort_five(t_stack **a, t_stack **b)
 {
-	int	min;
-	int	i;
+	t_stack	*min;
 
-	i = 0;
-	while (i < 2)
+	min = find_min_index(*a);
+	while ((*a)->value != min->value)
 	{
-		min = find_min_value(*a);
-		while ((*a)->value != min)
+		if (min->index <= ft_stack_size(*a) / 2)
 			rotate(a, 'a');
-		push(a, b, 'b');
-		i++;
+		else
+			reverse_rotate(a, 'a');
 	}
-	sort_three(a);
-	while (i > 0)
+	push(a, b, 'b');
+	sort_four(a, b);
+	push(b, a, 'a');
+}
+
+void	reverse_stack(t_stack **a, t_stack **b)
+{
+	while (*a)
 	{
-		push(b, a, 'a');
-		i--;
+		reverse_rotate(a, 'a');
+		push(a, b, 'b');
 	}
+	while (*b)
+		push(b, a, 'a');
 }

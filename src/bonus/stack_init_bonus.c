@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_init_bonus.c                                 :+:      :+:    :+:   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:06:30 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/22 01:48:34 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/22 20:09:51 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap_bonus.h"
+#include "../../include/push_swap.h"
 
 void	push_stack(t_stack **stack, int num)
 {
@@ -22,6 +22,7 @@ void	push_stack(t_stack **stack, int num)
 		ft_free_stack(stack);
 		return ;
 	}
+	new_node->index = ft_stack_size(*stack);
 	ft_add_back(stack, new_node);
 }
 

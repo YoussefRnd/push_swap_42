@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 22:19:13 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/22 04:05:36 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/23 00:11:30 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	is_valid_integer(char *input)
 {
-if ((*input == '+' || *input == '-') && *(input + 1) != '\0')
+	if ((*input == '+' || *input == '-') && *(input + 1) != '\0')
 		input++;
 	while (*input)
 	{

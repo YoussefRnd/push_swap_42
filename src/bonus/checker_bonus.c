@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 02:27:04 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/22 02:23:39 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/23 00:56:47 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	operations(t_stack **a, t_stack **b, char *command)
 	else if (!ft_strncmp(command, "sb\n", 3))
 		swap(b, 0);
 	else if (!ft_strncmp(command, "ss\n", 3))
-		ss(a, b);
+		ss(a, b, 0);
 	else if (!ft_strncmp(command, "pa\n", 3))
 		push(b, a, 0);
 	else if (!ft_strncmp(command, "pb\n", 3))
@@ -29,18 +29,15 @@ void	operations(t_stack **a, t_stack **b, char *command)
 	else if (!ft_strncmp(command, "rb\n", 3))
 		rotate(b, 0);
 	else if (!ft_strncmp(command, "rr\n", 3))
-		rr(a, b);
+		rr(a, b, 0);
 	else if (!ft_strncmp(command, "rra\n", 4))
 		reverse_rotate(a, 0);
 	else if (!ft_strncmp(command, "rrb\n", 4))
 		reverse_rotate(b, 0);
 	else if (!ft_strncmp(command, "rrr\n", 4))
-		rrr(a, b);
+		rrr(a, b, 0);
 	else
-	{
-		ft_putstr_fd("KO\n", 2);
-		exit(1);
-	}
+		ft_free_errors(a, "Error\n");
 }
 
 void	read_commands(t_stack **a, t_stack **b)
@@ -76,5 +73,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 2);
+	ft_free_stack(&a);
+	ft_free_stack(&b);
 	return (0);
 }

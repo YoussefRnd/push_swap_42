@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 11:44:52 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/21 22:56:56 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/23 00:58:05 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@ void	reverse_rotate(t_stack **stack, char stack_name)
 			ft_putstr_fd("rra\n", 1);
 		else if (stack_name == 'b')
 			ft_putstr_fd("rrb\n", 1);
+		update_indices(stack);
 	}
 }
 
-void	rrr(t_stack **x, t_stack **y)
+void	rrr(t_stack **x, t_stack **y, bool print)
 {
-	rotate(x, 'x');
-	rotate(y, 'x');
-	ft_putstr_fd("rrr\n", 1);
+	rotate(x, 0);
+	rotate(y, 0);
+	if (print)
+		ft_putstr_fd("rrr\n", 1);
 }

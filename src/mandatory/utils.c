@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:55:33 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/21 22:57:53 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/23 00:10:35 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,19 @@ int	is_sorted(t_stack *x)
 	while (x->next != NULL)
 	{
 		if (x->value > x->next->value)
+			return (false);
+		x = x->next;
+	}
+	return (true);
+}
+
+int	is_rsorted(t_stack *x)
+{
+	if (x == NULL)
+		return (false);
+	while (x->next != NULL)
+	{
+		if (x->value < x->next->value)
 			return (false);
 		x = x->next;
 	}

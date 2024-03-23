@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 21:18:42 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/21 22:57:47 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/23 00:57:17 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ void	swap(t_stack **stack, char stack_name)
 			ft_putstr_fd("sa\n", 1);
 		else if (stack_name == 'b')
 			ft_putstr_fd("sb\n", 1);
+		update_indices(stack);
 	}
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, bool print)
 {
-	swap(a, 'x');
-	swap(b, 'x');
-	ft_putstr_fd("ss\n", 1);
+	swap(a, 0);
+	swap(b, 0);
+	if (print)
+		ft_putstr_fd("ss\n", 1);
 }

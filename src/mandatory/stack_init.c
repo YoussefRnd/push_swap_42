@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:06:30 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/21 22:57:30 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/22 20:09:51 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	push_stack(t_stack **stack, int num)
 		ft_free_stack(stack);
 		return ;
 	}
+	new_node->index = ft_stack_size(*stack);
 	ft_add_back(stack, new_node);
 }
 
