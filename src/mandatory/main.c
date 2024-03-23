@@ -6,28 +6,11 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 19:36:04 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/23 01:27:05 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/23 19:25:51 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-
-void	print_stack(t_stack *stack)
-{
-	t_stack	*current;
-
-	current = stack;
-	printf("Stack A:\n");
-	while (current != NULL)
-	{
-		printf("%d <- %d -> %d, Index: %d, Sorted Index: %d\n",
-			(current->prev != NULL) ? current->prev->value : -0, current->value,
-			(current->next != NULL) ? current->next->value : -0, current->index,
-			current->sorted_index);
-		current = current->next;
-	}
-	printf("\n");
-}
 
 void	sorting(t_stack **a, t_stack **b)
 {
@@ -61,7 +44,6 @@ int	main(int argc, char **argv)
 		reverse_stack(&a, &b);
 	else if (is_sorted(a) == false)
 		sorting(&a, &b);
-	// print_stack(a);
 	ft_free_stack(&a);
 	return (0);
 }

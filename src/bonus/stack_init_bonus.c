@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_init.c                                       :+:      :+:    :+:   */
+/*   stack_init_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 15:06:30 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/22 20:09:51 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/23 19:31:46 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void	stack_init(t_stack **stack, char **argv, int argc)
 		{
 			num = ft_atol(split_args[j]);
 			if (!is_valid_integer(split_args[j]))
-				ft_free_errors(stack, "Error\n");
+				ft_free_errors(stack, split_args, "Error\n");
 			if (num > INT_MAX || num < INT_MIN)
-				ft_free_errors(stack, "Error\n");
+				ft_free_errors(stack, split_args, "Error\n");
 			if (check_duplicate(*stack, num))
-				ft_free_errors(stack, "Error\n");
+				ft_free_errors(stack, split_args, "Error\n");
 			push_stack(stack, num);
 			j++;
 		}

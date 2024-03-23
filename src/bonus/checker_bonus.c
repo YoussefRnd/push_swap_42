@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 02:27:04 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/23 00:56:47 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/23 19:30:02 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	operations(t_stack **a, t_stack **b, char *command)
 	else if (!ft_strncmp(command, "rrr\n", 4))
 		rrr(a, b, 0);
 	else
-		ft_free_errors(a, "Error\n");
+		ft_free_errors(a, NULL, "Error\n");
 }
 
 void	read_commands(t_stack **a, t_stack **b)

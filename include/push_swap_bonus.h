@@ -6,12 +6,12 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/23 00:51:30 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/23 19:29:12 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include "../lib/Libft/libft.h"
 # include "../src/bonus/get_next_line_bonus.h"
@@ -39,7 +39,7 @@ void				ft_add_back(t_stack **stack, t_stack *new_stack);
 
 void				ft_free_stack(t_stack **stack);
 void				ft_free(char **arr);
-void				ft_free_errors(t_stack **stack, char *msg);
+void				ft_free_errors(t_stack **stack, char **str, char *msg);
 
 long				ft_atol(const char *str);
 int					ft_arrlen(char **arr);
