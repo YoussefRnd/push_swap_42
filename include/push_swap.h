@@ -6,7 +6,7 @@
 /*   By: yboumlak <yboumlak@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:15:16 by yboumlak          #+#    #+#             */
-/*   Updated: 2024/03/23 00:46:50 by yboumlak         ###   ########.fr       */
+/*   Updated: 2024/03/23 02:27:58 by yboumlak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void				ft_add_back(t_stack **stack, t_stack *new_stack);
 
 void				ft_free_stack(t_stack **stack);
 void				ft_free(char **arr);
-void				ft_free_errors(t_stack **stack, char *msg);
+void				ft_free_errors(t_stack **stack, char **str, char *msg);
 
 long				ft_atol(const char *str);
 int					ft_arrlen(char **arr);
